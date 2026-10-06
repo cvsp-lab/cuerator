@@ -1,0 +1,32 @@
+search:
+  max_iterations: 20
+  max_retries: 3
+  num_params: 10
+
+verifier:
+  max_helpers: 5          # primitive helper functions (+ 2 mains → max_functions = 7)
+  max_helper_stmts: 8     # per-helper statement budget (S2)
+  max_helper_total: 16    # summed statement budget across all helpers (S2)
+  max_main_stmts: 18      # per-main-function statement budget (S2)
+
+oracle:
+  encoder: imagebind
+  num_candidates: 131072   # 2^17 — Sobol balance property requires power of 2
+  chunk_size: 200000
+  num_gpus: 1            # one GPU per session
+
+step3_final:
+  encoder: imagebind
+  epochs: 20
+  batch_size: 32
+  num_samples: 4
+  fixed_action_std: 0.3
+  policy_seed: 42
+  device: "cuda:0"
+  selection_metric: frame_acc
+
+backend:
+  # Agent backend model. Leave empty to use the Codex CLI's configured default.
+  # Set to any model identifier your Codex CLI can reach, e.g. model: "gpt-5.1".
+  model: ""
+  reasoning_effort: high

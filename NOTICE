@@ -1,0 +1,14 @@
+CueRator — third-party code notices
+===================================
+
+step1_prepare/encoders/imagebind_lib/
+    Vendored from ImageBind (https://github.com/facebookresearch/ImageBind).
+    Portions Copyright (c) Meta Platforms, Inc. and affiliates.
+    Licensed under CC-BY-NC 4.0. Included unmodified except for import paths,
+    solely to make embedding extraction reproducible. Non-commercial use only.
+
+ImageBind weights download from the upstream release on first use; no other encoder is
+included.
+
+The remainder of this repository is released under the license in LICENSE.
+Note that the CC-BY-NC 4.0 term above applies to the vendored ImageBind code.

@@ -1,0 +1,30 @@
+# PyTorch is installed separately, as a MATCHED SET, with the CUDA build that matches
+# your driver. Run this BEFORE `pip install -r requirements.txt`:
+#
+#   pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 \
+#       --index-url https://download.pytorch.org/whl/cu118
+#
+# Install all three together. Installing `torch` alone lets an unpinned dependency pull
+# a PyPI torchvision, which drags in a different torch build and silently replaces the
+# CUDA build you just installed (pip still exits 0).
+#
+# torch is pinned to 2.0.1 because that is the version the reported numbers were produced
+# with. Newer torch runs the pipeline correctly but does not reproduce the exact metrics
+# (torch 2.7.1 differs by roughly -0.4 points on test avg, with everything else identical).
+# torchvision 0.15.2 is also what pytorchvideo needs -- see the note below.
+
+# --- core (search loop + policy training + evaluation) ---
+numpy<2.0
+scipy
+pandas>=1.5
+pyyaml
+tqdm
+
+# --- step1_prepare only: ImageBind dependencies for re-extracting embeddings ---
+einops
+timm==0.4.5
+pytorchvideo          # imports torchvision.transforms.functional_tensor, which was REMOVED
+                      # in torchvision 0.17. Fine on the pinned 0.15.2; on newer torchvision
+                      # step1_prepare/encoders/_pytorchvideo_compat.py aliases it back.
+ftfy
+regex

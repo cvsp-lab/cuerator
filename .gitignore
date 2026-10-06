@@ -1,0 +1,19 @@
+# Local environment (contains your dataset path)
+env.sh
+
+# Generated data and outputs
+data/
+runs/
+
+# ImageBind weights, downloaded on first use (~4.5 GB)
+.checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

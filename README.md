@@ -1,6 +1,6 @@
 # CueRator
 
-Agentic Search for Symbolic Rules to Adapt Frozen Multimodal Encoders
+Agentic Search for Symbolic Rules to Adapt Frozen Multimodal Encoders [[Paper](https://arxiv.org/abs/2610.07868)]
 
 This repository contains the code for the OV-AVEL experiments on OV-AVEBench with ImageBind.
 
@@ -135,3 +135,14 @@ plus `eval_<split>_predictions.jsonl` next to the checkpoint, or into `--output_
 ## Notes
 
 Third-party code notices: see `NOTICE`. The vendored ImageBind code is CC-BY-NC 4.0.
+
+## Citation
+
+```bibtex
+@article{park2026cuerator,
+  title   = {CueRator: Agentic Search for Symbolic Rules to Adapt Frozen Multimodal Encoders},
+  author  = {Park, Sunchan and Cho, Beomkwon and Kong, Kyeongbo},
+  journal = {arXiv preprint arXiv:2610.07868},
+  year    = {2026}
+}
+```
